@@ -153,27 +153,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Clean hash or query parameter from URL and scroll smoothly on page load
+// Clean hash from URL and scroll smoothly on page load
 window.addEventListener('load', () => {
-  let targetId = null;
-
-  // Check query parameter 'go'
-  const urlParams = new URLSearchParams(window.location.search);
-  const goTo = urlParams.get('go');
-  if (goTo) {
-    targetId = '#' + goTo;
-  } else if (window.location.hash) {
-    targetId = window.location.hash;
-  }
-
-  if (targetId) {
-    const targetElement = document.querySelector(targetId);
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    const targetElement = document.querySelector(hash);
     
     if (targetElement) {
-      // Prevent native instant jump
+      // Scroll to top immediately to prevent sudden jump, then smooth scroll
       window.scrollTo(0, 0);
 
-      // Smooth scroll to the section
       setTimeout(() => {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
@@ -184,7 +173,7 @@ window.addEventListener('load', () => {
           behavior: 'smooth'
         });
         
-        // Remove the ?go= or #hash from the URL bar immediately
+        // Clean hash from the URL bar immediately
         if (history.replaceState) {
           history.replaceState(null, null, window.location.pathname);
         }
