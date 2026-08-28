@@ -1225,6 +1225,13 @@ footer {
     gap: 1rem;
     text-align: center;
   }
+
+  #laserRandevuBtn {
+    display: block;
+    margin: 2.5rem auto 0 auto;
+    width: fit-content;
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {
