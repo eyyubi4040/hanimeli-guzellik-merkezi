@@ -1177,13 +1177,14 @@ footer {
   }
 
   .hero-actions {
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    width: 100% !important;
   }
 
   .hero-actions .btn {
-    width: 100%;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .services-grid {
