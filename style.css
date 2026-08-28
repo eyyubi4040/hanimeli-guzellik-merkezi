@@ -39,8 +39,9 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus, img:focus {
 }
 
 html, body {
+  width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 body {
