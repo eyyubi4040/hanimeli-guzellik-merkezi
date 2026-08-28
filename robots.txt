@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hanimeliguzellik.com/sitemap.xml
+Sitemap: https://www.hanimeliguzellikmerkezi.com/sitemap.xml
