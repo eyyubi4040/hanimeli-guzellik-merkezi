@@ -1167,13 +1167,23 @@ footer {
   }
   
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
   
   .hero {
     padding: 5rem 1.25rem 2.5rem 1.25rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
   }
   
   .services-grid {
