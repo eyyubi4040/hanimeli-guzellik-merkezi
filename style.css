@@ -1074,6 +1074,13 @@ footer {
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 1024px) {
+  header {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid var(--border-color);
+  }
+
   .nav-container {
     padding: 0.8rem 1rem;
   }
@@ -1418,12 +1425,14 @@ footer {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .campaign-modal.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .modal-overlay {
