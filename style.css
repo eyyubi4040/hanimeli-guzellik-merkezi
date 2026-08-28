@@ -203,7 +203,7 @@ header.scrolled {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.75rem;
   list-style: none;
 }
 
