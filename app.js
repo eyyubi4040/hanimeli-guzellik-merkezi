@@ -154,7 +154,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Clean hash or query parameter from URL and scroll smoothly on page load
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   let targetId = null;
 
   // Check query parameter 'go'
