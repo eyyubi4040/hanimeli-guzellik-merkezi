@@ -119,23 +119,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
     
-    // Skip if it's just '#'
-    if (targetId === '#') {
-      e.preventDefault();
+    e.preventDefault();
+    
+    // Skip if it's just '#' or '#anasayfa'
+    if (targetId === '#' || targetId === '#anasayfa') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
       if (history.pushState) {
-        history.pushState(null, null, window.location.pathname);
+        history.pushState(null, null, '/');
       }
       return;
     }
     
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-      e.preventDefault();
-      
       // Calculate offset for fixed header
       const headerOffset = 90;
       const elementPosition = targetElement.getBoundingClientRect().top;
@@ -145,6 +144,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+      
+      if (history.pushState) {
+        const cleanPath = targetId.replace('#', '');
+        history.pushState(null, null, '/' + cleanPath);
+      }
     }
   });
 });
