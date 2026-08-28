@@ -1059,6 +1059,19 @@ footer {
   opacity: 0.7;
 }
 
+.btn-instagram {
+  border: 1px solid #E1306C;
+  color: #E1306C;
+  background-color: transparent;
+  transition: var(--transition);
+}
+
+.btn-instagram:hover {
+  border-color: var(--primary);
+  color: white;
+  background-color: var(--primary);
+}
+
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 1024px) {
   .nav-container {
