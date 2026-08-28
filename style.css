@@ -195,7 +195,7 @@ header.scrolled {
 }
 
 .logo img {
-  height: 100px; /* Increased height to make the logo even larger */
+  height: 70px; /* Decreased height to make the logo smaller */
   width: auto;
   object-fit: contain;
 }
@@ -1065,8 +1065,8 @@ footer {
   }
 
   .logo img {
-    height: 50px;
-    max-width: 160px;
+    height: 45px;
+    max-width: 150px;
     object-fit: contain;
   }
 
