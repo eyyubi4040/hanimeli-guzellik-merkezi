@@ -181,3 +181,43 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+// Auto-select service in the dropdown based on URL or homepage actions
+window.addEventListener('DOMContentLoaded', () => {
+  const serviceSelect = document.getElementById('service');
+  if (!serviceSelect) return;
+
+  // 1. Auto-select based on URL Pathname
+  const path = window.location.pathname.toLowerCase();
+  if (path.includes('diot-buz-lazer')) {
+    serviceSelect.value = 'Diot Buz Lazer';
+  } else if (path.includes('medikal-cilt-bakimi')) {
+    serviceSelect.value = 'Cilt Bakımı';
+  } else if (path.includes('pedikur-ve-tirnak-tasarimi')) {
+    serviceSelect.value = 'Pedikür';
+  } else if (path.includes('kas-kontur-microblading')) {
+    serviceSelect.value = 'Kaş Kontür';
+  } else if (path.includes('profesyonel-masaj')) {
+    serviceSelect.value = 'Masaj Hizmetleri';
+  }
+
+  // 2. Auto-select based on URL query parameter (e.g. ?service=lazer)
+  const params = new URLSearchParams(window.location.search);
+  const serviceParam = params.get('service') || params.get('hizmet');
+  if (serviceParam) {
+    const val = serviceParam.toLowerCase();
+    if (val.includes('lazer')) serviceSelect.value = 'Diot Buz Lazer';
+    else if (val.includes('cilt') || val.includes('bakim')) serviceSelect.value = 'Cilt Bakımı';
+    else if (val.includes('pedikur') || val.includes('tirnak')) serviceSelect.value = 'Pedikür';
+    else if (val.includes('kas') || val.includes('kontur') || val.includes('micro')) serviceSelect.value = 'Kaş Kontür';
+    else if (val.includes('masaj')) serviceSelect.value = 'Masaj Hizmetleri';
+  }
+
+  // 3. Homepage Lazer Section "Randevu Al" Button Auto-select
+  const laserBtn = document.getElementById('laserRandevuBtn');
+  if (laserBtn) {
+    laserBtn.addEventListener('click', () => {
+      serviceSelect.value = 'Diot Buz Lazer';
+    });
+  }
+});
