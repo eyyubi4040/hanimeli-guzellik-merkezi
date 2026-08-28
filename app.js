@@ -152,3 +152,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Clean hash from URL and scroll smoothly on page load
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    const targetElement = document.querySelector(hash);
+    
+    if (targetElement) {
+      // Prevent native instant jump
+      window.scrollTo(0, 0);
+
+      // Smooth scroll to the section
+      setTimeout(() => {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Remove the #hash from the URL bar immediately
+        if (history.replaceState) {
+          history.replaceState(null, null, window.location.pathname);
+        }
+      }, 100);
+    }
+  }
+});
