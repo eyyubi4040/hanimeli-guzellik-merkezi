@@ -729,8 +729,8 @@ header.scrolled {
 
 .campaign-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1160,6 +1160,11 @@ footer {
   
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .campaign-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
   
   .stats-grid {
