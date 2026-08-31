@@ -739,7 +739,7 @@ header.scrolled {
   background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: 24px;
-  padding: 3rem 2rem;
+  padding: 3rem 1.2rem;
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
@@ -774,7 +774,7 @@ header.scrolled {
 }
 
 .campaign-card h4 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--secondary);
   margin-bottom: 1rem;
 }
@@ -1159,6 +1159,10 @@ footer {
   .campaign-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+
+  .campaign-card {
+    padding: 3rem 2rem;
   }
 
   .campaign-card h4 {
