@@ -774,7 +774,7 @@ header.scrolled {
 }
 
 .campaign-card h4 {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: var(--secondary);
   margin-bottom: 1rem;
 }
@@ -1159,6 +1159,10 @@ footer {
   .campaign-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+
+  .campaign-card h4 {
+    font-size: 1.3rem;
   }
   
   .stats-grid {
