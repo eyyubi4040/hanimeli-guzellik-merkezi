@@ -803,12 +803,6 @@ header.scrolled {
   width: 100%;
 }
 
-@media (max-width: 992px) {
-  .campaign-cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-  }
-}
 
 /* --- APPOINTMENT / CONTACT SECTION --- */
 .contact-section {
@@ -1173,6 +1167,14 @@ footer {
   
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .campaign-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
 
