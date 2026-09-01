@@ -9,8 +9,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/kirsehir_en_iyi_salon.jpg</image:loc>
-      <image:title>Kırşehir En İyi Güzellik Merkezi Hanımeli</image:title>
+      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/hero_beauty.jpg</image:loc>
+      <image:title>Hanımeli Güzellik Merkezi Kırşehir</image:title>
     </image:image>
   </url>
 
@@ -38,72 +38,12 @@
     </image:image>
   </url>
 
-  <!-- Hydrafacial ve Dermapen -->
-  <url>
-    <loc>https://www.hanimeliguzellikmerkezi.com/hydrafacial-ve-dermapen</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/hydrafacial_cilt.jpg</image:loc>
-      <image:title>Kırşehir Hydrafacial ve Dermapen Cilt Yenileme</image:title>
-    </image:image>
-  </url>
-
-  <!-- İpek Kirpik ve Lifting -->
-  <url>
-    <loc>https://www.hanimeliguzellikmerkezi.com/ipek-kirpik-ve-lifting</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/ipek_kirpik.jpg</image:loc>
-      <image:title>Kırşehir İpek Kirpik ve Kirpik Lifting</image:title>
-    </image:image>
-  </url>
-
-  <!-- G5 Bölgesel İncelme -->
-  <url>
-    <loc>https://www.hanimeliguzellikmerkezi.com/bolgesel-incelme-ve-g5</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/bolgesel_incelme.jpg</image:loc>
-      <image:title>Kırşehir G5 Masajı ve Bölgesel İncelme</image:title>
-    </image:image>
-  </url>
-
-  <!-- Protez Tırnak ve Kalıcı Oje -->
-  <url>
-    <loc>https://www.hanimeliguzellikmerkezi.com/protez-tirnak-ve-kalici-oje</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/protez_tirnak.jpg</image:loc>
-      <image:title>Kırşehir Protez Tırnak ve Kalıcı Oje</image:title>
-    </image:image>
-  </url>
-
-  <!-- Gelin ve Özel Gün Bakım Paketi -->
-  <url>
-    <loc>https://www.hanimeliguzellikmerkezi.com/gelin-ve-ozel-gun-bakim-paketi</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/gelin_bakimi.jpg</image:loc>
-      <image:title>Kırşehir Gelin Bakım Paketi</image:title>
-    </image:image>
-  </url>
-
   <!-- Medikal Cilt Bakımı -->
   <url>
     <loc>https://www.hanimeliguzellikmerkezi.com/medikal-cilt-bakimi</loc>
     <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/cilt_bakimi.jpg</image:loc>
       <image:title>Kırşehir Medikal Cilt Bakımı</image:title>
@@ -114,8 +54,8 @@
   <url>
     <loc>https://www.hanimeliguzellikmerkezi.com/kas-kontur-microblading</loc>
     <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/kas_kontur.jpg</image:loc>
       <image:title>Kırşehir Kaş Kontür Microblading</image:title>
@@ -126,8 +66,8 @@
   <url>
     <loc>https://www.hanimeliguzellikmerkezi.com/pedikur-ve-tirnak-tasarimi</loc>
     <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/pedikur.jpg</image:loc>
       <image:title>Kırşehir Pedikür ve Tırnak Tasarımı</image:title>
@@ -138,8 +78,8 @@
   <url>
     <loc>https://www.hanimeliguzellikmerkezi.com/profesyonel-masaj</loc>
     <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.hanimeliguzellikmerkezi.com/assets/masaj.jpg</image:loc>
       <image:title>Kırşehir Profesyonel Masaj</image:title>

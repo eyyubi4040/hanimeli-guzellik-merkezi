@@ -192,16 +192,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.toLowerCase();
   if (path.includes('diot-buz-lazer')) {
     serviceSelect.value = 'Diot Buz Lazer';
-  } else if (path.includes('hydrafacial-ve-dermapen')) {
-    serviceSelect.value = 'Hydrafacial ve Dermapen';
-  } else if (path.includes('ipek-kirpik-ve-lifting')) {
-    serviceSelect.value = 'İpek Kirpik ve Lifting';
-  } else if (path.includes('bolgesel-incelme-ve-g5')) {
-    serviceSelect.value = 'G5 Bölgesel İncelme';
-  } else if (path.includes('protez-tirnak-ve-kalici-oje')) {
-    serviceSelect.value = 'Protez Tırnak ve Kalıcı Oje';
-  } else if (path.includes('gelin-ve-ozel-gun-bakim-paketi')) {
-    serviceSelect.value = 'Gelin Bakım Paketi';
   } else if (path.includes('medikal-cilt-bakimi')) {
     serviceSelect.value = 'Medikal Cilt Bakımı';
   } else if (path.includes('pedikur-ve-tirnak-tasarimi')) {
@@ -218,13 +208,8 @@ window.addEventListener('DOMContentLoaded', () => {
   if (serviceParam) {
     const val = serviceParam.toLowerCase();
     if (val.includes('lazer')) serviceSelect.value = 'Diot Buz Lazer';
-    else if (val.includes('hydra') || val.includes('derma')) serviceSelect.value = 'Hydrafacial ve Dermapen';
-    else if (val.includes('kirpik') || val.includes('lifting')) serviceSelect.value = 'İpek Kirpik ve Lifting';
-    else if (val.includes('incelme') || val.includes('g5') || val.includes('selulit')) serviceSelect.value = 'G5 Bölgesel İncelme';
-    else if (val.includes('protez') || val.includes('oje') || val.includes('nail')) serviceSelect.value = 'Protez Tırnak ve Kalıcı Oje';
-    else if (val.includes('gelin') || val.includes('dugun')) serviceSelect.value = 'Gelin Bakım Paketi';
     else if (val.includes('cilt') || val.includes('bakim')) serviceSelect.value = 'Medikal Cilt Bakımı';
-    else if (val.includes('pedikur') || val.includes('ayak')) serviceSelect.value = 'Pedikür';
+    else if (val.includes('pedikur') || val.includes('ayak') || val.includes('tirnak')) serviceSelect.value = 'Pedikür';
     else if (val.includes('kas') || val.includes('kontur') || val.includes('micro')) serviceSelect.value = 'Kaş Kontür';
     else if (val.includes('masaj')) serviceSelect.value = 'Masaj Hizmetleri';
   }
