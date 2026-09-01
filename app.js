@@ -18,7 +18,8 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     menuToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
   });
@@ -29,6 +30,14 @@ if (menuToggle && navLinks) {
       menuToggle.classList.remove('active');
       navLinks.classList.remove('active');
     });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
   });
 }
 
@@ -119,27 +128,27 @@ if (campaignModal) {
   if (modalActionBtn) modalActionBtn.addEventListener('click', handleAction);
 }
 
-// Smooth scrolling for anchor links without showing # in URL
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
     
-    e.preventDefault();
+    // Skip if it's empty
+    if (!targetId || targetId === '#') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     
-    // Skip if it's just '#' or '#anasayfa'
-    if (targetId === '#' || targetId === '#anasayfa') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      if (history.pushState) {
-        history.pushState(null, null, '/');
-      }
+    if (targetId === '#anasayfa') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
+      e.preventDefault();
       // Calculate offset for fixed header
       const headerOffset = 90;
       const elementPosition = targetElement.getBoundingClientRect().top;
@@ -149,25 +158,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
-      if (history.pushState) {
-        const cleanPath = targetId.replace('#', '');
-        history.pushState(null, null, '/' + cleanPath);
-      }
     }
   });
 });
 
-// Clean hash from URL and scroll smoothly on page load
+// Smooth scroll on page load if hash exists
 window.addEventListener('load', () => {
   if (window.location.hash) {
     const hash = window.location.hash;
     const targetElement = document.querySelector(hash);
     
     if (targetElement) {
-      // Scroll to top immediately to prevent sudden jump, then smooth scroll
-      window.scrollTo(0, 0);
-
       setTimeout(() => {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
@@ -177,11 +178,6 @@ window.addEventListener('load', () => {
           top: offsetPosition,
           behavior: 'smooth'
         });
-        
-        // Clean hash from the URL bar immediately
-        if (history.replaceState) {
-          history.replaceState(null, null, window.location.pathname);
-        }
       }, 100);
     }
   }
@@ -196,8 +192,18 @@ window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.toLowerCase();
   if (path.includes('diot-buz-lazer')) {
     serviceSelect.value = 'Diot Buz Lazer';
+  } else if (path.includes('hydrafacial-ve-dermapen')) {
+    serviceSelect.value = 'Hydrafacial ve Dermapen';
+  } else if (path.includes('ipek-kirpik-ve-lifting')) {
+    serviceSelect.value = 'İpek Kirpik ve Lifting';
+  } else if (path.includes('bolgesel-incelme-ve-g5')) {
+    serviceSelect.value = 'G5 Bölgesel İncelme';
+  } else if (path.includes('protez-tirnak-ve-kalici-oje')) {
+    serviceSelect.value = 'Protez Tırnak ve Kalıcı Oje';
+  } else if (path.includes('gelin-ve-ozel-gun-bakim-paketi')) {
+    serviceSelect.value = 'Gelin Bakım Paketi';
   } else if (path.includes('medikal-cilt-bakimi')) {
-    serviceSelect.value = 'Cilt Bakımı';
+    serviceSelect.value = 'Medikal Cilt Bakımı';
   } else if (path.includes('pedikur-ve-tirnak-tasarimi')) {
     serviceSelect.value = 'Pedikür';
   } else if (path.includes('kas-kontur-microblading')) {
@@ -212,8 +218,13 @@ window.addEventListener('DOMContentLoaded', () => {
   if (serviceParam) {
     const val = serviceParam.toLowerCase();
     if (val.includes('lazer')) serviceSelect.value = 'Diot Buz Lazer';
-    else if (val.includes('cilt') || val.includes('bakim')) serviceSelect.value = 'Cilt Bakımı';
-    else if (val.includes('pedikur') || val.includes('tirnak')) serviceSelect.value = 'Pedikür';
+    else if (val.includes('hydra') || val.includes('derma')) serviceSelect.value = 'Hydrafacial ve Dermapen';
+    else if (val.includes('kirpik') || val.includes('lifting')) serviceSelect.value = 'İpek Kirpik ve Lifting';
+    else if (val.includes('incelme') || val.includes('g5') || val.includes('selulit')) serviceSelect.value = 'G5 Bölgesel İncelme';
+    else if (val.includes('protez') || val.includes('oje') || val.includes('nail')) serviceSelect.value = 'Protez Tırnak ve Kalıcı Oje';
+    else if (val.includes('gelin') || val.includes('dugun')) serviceSelect.value = 'Gelin Bakım Paketi';
+    else if (val.includes('cilt') || val.includes('bakim')) serviceSelect.value = 'Medikal Cilt Bakımı';
+    else if (val.includes('pedikur') || val.includes('ayak')) serviceSelect.value = 'Pedikür';
     else if (val.includes('kas') || val.includes('kontur') || val.includes('micro')) serviceSelect.value = 'Kaş Kontür';
     else if (val.includes('masaj')) serviceSelect.value = 'Masaj Hizmetleri';
   }
