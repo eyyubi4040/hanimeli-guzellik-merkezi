@@ -150,7 +150,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (targetElement) {
       e.preventDefault();
       // Calculate offset for fixed header
-      const headerOffset = 90;
+      const bannerOffset = document.body.classList.contains("has-top-banner") ? 45 : 0; const headerOffset = 90 + bannerOffset;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       
@@ -170,7 +170,7 @@ window.addEventListener('load', () => {
     
     if (targetElement) {
       setTimeout(() => {
-        const headerOffset = 90;
+        const bannerOffset = document.body.classList.contains("has-top-banner") ? 45 : 0; const headerOffset = 90 + bannerOffset;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -222,3 +222,80 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// ==========================================================================
+// 29 EKİM CUMHURİYET BAYRAMI ÖZEL KUTLAMA BARI
+// ==========================================================================
+function initRepublicDayBanner() {
+  const banner = document.getElementById('republicDayBanner');
+  if (!banner) return;
+
+  const now = new Date();
+  const currentYear = now.getFullYear();
+
+  // Bitiş Zamanı: 29 Ekim 23:59:59 (Bayram gününün bitimi / 30 Ekim 00:00)
+  const expireDate = new Date(currentYear, 9, 29, 23, 59, 59, 999);
+  const startDate = new Date(currentYear, 9, 28, 0, 0, 0, 0);
+
+  // Tarih kontrolü: Süre bittiyse veya henüz başlamadıysa gösterme
+  if (now.getTime() > expireDate.getTime() || now.getTime() < startDate.getTime()) {
+    banner.style.display = 'none';
+    document.body.classList.remove('has-top-banner');
+    return;
+  }
+
+  // Ziyaretçi bu oturumda kapattıysa gösterme
+  if (sessionStorage.getItem('republicBannerDismissed') === 'true') {
+    banner.style.display = 'none';
+    document.body.classList.remove('has-top-banner');
+    return;
+  }
+
+  // Cumhuriyet yılını otomatik hesapla (1923'ten günümüze)
+  const yearsPassed = currentYear - 1923;
+  const descEl = document.getElementById('celebrationDesc');
+  if (descEl) {
+    descEl.innerHTML = `Cumhuriyetimizin <strong>${yearsPassed}. yılında</strong> Gazi Mustafa Kemal Atatürk ve silah arkadaşlarını saygı, minnet ve rahmetle anıyoruz.`;
+  }
+
+  // Barı göster ve sayfa üst boşluğunu ayarla
+  banner.style.display = 'block';
+  document.body.classList.add('has-top-banner');
+
+  const syncHeight = () => {
+    if (banner && banner.offsetHeight) {
+      document.documentElement.style.setProperty('--banner-height', banner.offsetHeight + 'px');
+    }
+  };
+
+  // DOM ve fontlar tam oturduğunda yüksekliği senkronize et
+  syncHeight();
+  window.addEventListener('resize', syncHeight);
+  setTimeout(syncHeight, 100);
+
+  // Kapatma butonu işlevi
+  const closeBtn = document.getElementById('closeRepublicBanner');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      document.body.classList.remove('has-top-banner');
+      sessionStorage.setItem('republicBannerDismissed', 'true');
+    });
+  }
+
+  // Sayfa açıkken süre dolduğunda otomatik anında kaldır
+  const msUntilExpire = expireDate.getTime() - now.getTime();
+  if (msUntilExpire > 0 && msUntilExpire < 2147483647) {
+    setTimeout(() => {
+      banner.style.display = 'none';
+      document.body.classList.remove('has-top-banner');
+    }, msUntilExpire);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRepublicDayBanner);
+} else {
+  initRepublicDayBanner();
+}

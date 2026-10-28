@@ -92,9 +92,44 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=2.0.0">
+  <link rel="stylesheet" href="style.css?v=2.1.0">
 </head>
 <body>
+
+  <!-- 29 Ekim Cumhuriyet Bayramı Kutlama Barı -->
+  <aside id="republicDayBanner" class="celebration-top-bar" role="region" aria-label="Cumhuriyet Bayramı Duyurusu" style="display: none;">
+    <div class="celebration-container">
+      <!-- Sol Grup: Atatürk Portresi ve Türk Bayrağı -->
+      <div class="celebration-side celebration-side-left">
+        <div class="celebration-avatar-wrapper" title="Gazi Mustafa Kemal Atatürk">
+          <img src="assets/ataturk.jpg" alt="Mustafa Kemal Atatürk" class="celebration-avatar" loading="lazy">
+        </div>
+        <div class="celebration-flag-wrapper" title="Türk Bayrağı">
+          <img src="assets/turk-bayragi.svg" alt="Türk Bayrağı" class="celebration-side-flag" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Orta Grup: Kutlama Mesajı -->
+      <div class="celebration-content">
+        <span class="celebration-title">29 Ekim Cumhuriyet Bayramımız Kutlu Olsun!</span>
+        <span class="celebration-divider">•</span>
+        <span class="celebration-desc" id="celebrationDesc">Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk ve silah arkadaşlarını saygı, minnet ve rahmetle anıyoruz.</span>
+      </div>
+
+      <!-- Sağ Grup: Türk Bayrağı, Atatürk Portresi ve Kapat Butonu -->
+      <div class="celebration-side celebration-side-right">
+        <div class="celebration-flag-wrapper" title="Türk Bayrağı">
+          <img src="assets/turk-bayragi.svg" alt="Türk Bayrağı" class="celebration-side-flag" loading="lazy">
+        </div>
+        <div class="celebration-avatar-wrapper" title="Gazi Mustafa Kemal Atatürk">
+          <img src="assets/ataturk.jpg" alt="Mustafa Kemal Atatürk" class="celebration-avatar" loading="lazy">
+        </div>
+        <button type="button" class="celebration-close-btn" id="closeRepublicBanner" aria-label="Duyuruyu Kapat">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
 
   <!-- CAMPAIGN MODAL BANNER -->
   <div class="campaign-modal" id="campaignModal">
@@ -620,6 +655,6 @@
   </a>
 
   <!-- JS Scripts -->
-  <script src="app.js?v=2.0.0"></script>
+  <script src="app.js?v=2.1.0"></script>
 </body>
 </html>

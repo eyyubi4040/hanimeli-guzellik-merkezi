@@ -1909,3 +1909,225 @@ footer {
   color: var(--text-muted);
 }
 
+
+
+/* ==========================================================================
+   29 EKİM CUMHURİYET BAYRAMI ÖZEL KUTLAMA BARI
+   ========================================================================== */
+.celebration-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1002;
+  background: linear-gradient(135deg, #7a0006 0%, #ba030d 25%, #e30a17 50%, #ba030d 75%, #7a0006 100%);
+  background-size: 200% 200%;
+  animation: celebrationShift 8s ease infinite;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 25px rgba(227, 10, 23, 0.4);
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  padding: 0.45rem 0;
+  box-sizing: border-box;
+}
+
+@keyframes celebrationShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.celebration-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0 1.25rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Yan Portre & Bayrak Öğeleri */
+.celebration-side {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.celebration-avatar-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #ffd166;
+  box-shadow: 0 0 12px rgba(255, 209, 102, 0.55), 0 2px 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.celebration-avatar-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.celebration-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.celebration-flag-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.celebration-side-flag {
+  width: 32px;
+  height: 22px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: block;
+  animation: flagFlutter 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes flagFlutter {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.08) translateY(-2px); }
+}
+
+.celebration-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.celebration-title {
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.celebration-divider {
+  opacity: 0.65;
+  font-size: 0.75rem;
+}
+
+.celebration-desc {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.celebration-close-btn {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.25s ease;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.celebration-close-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.12);
+  color: #ffffff;
+}
+
+/* Header & Hero dinamik hizalama */
+body.has-top-banner header {
+  top: var(--banner-height, 48px);
+  transition: top 0.25s ease;
+}
+
+body.has-top-banner .hero {
+  padding-top: calc(10.5rem + var(--banner-height, 48px)) !important;
+  transition: padding-top 0.25s ease;
+}
+
+@media (max-width: 1200px) {
+  .celebration-container {
+    gap: 0.75rem;
+  }
+  .celebration-content {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .celebration-content {
+    font-size: 0.78rem;
+    gap: 0.4rem;
+  }
+  .celebration-avatar-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  .celebration-side-flag {
+    width: 28px;
+    height: 19px;
+  }
+  body.has-top-banner .nav-links {
+    top: var(--banner-height, 48px);
+    height: calc(100vh - var(--banner-height, 48px));
+  }
+}
+
+@media (max-width: 768px) {
+  .celebration-top-bar {
+    padding: 0.45rem 0;
+  }
+  .celebration-container {
+    gap: 0.5rem;
+    padding: 0 0.6rem;
+  }
+  /* Mobilde her iki yanda 1'er simge bırakılır: Solda Atatürk, Sağda Bayrak */
+  .celebration-side-left .celebration-flag-wrapper,
+  .celebration-side-right .celebration-avatar-wrapper {
+    display: none;
+  }
+  .celebration-avatar-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+  .celebration-side-flag {
+    width: 24px;
+    height: 16px;
+  }
+  .celebration-content {
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.74rem;
+  }
+  .celebration-divider {
+    display: none;
+  }
+  body.has-top-banner .hero {
+    padding-top: calc(9.5rem + var(--banner-height, 48px)) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  body.has-top-banner .hero {
+    padding-top: calc(9rem + var(--banner-height, 48px)) !important;
+  }
+}
