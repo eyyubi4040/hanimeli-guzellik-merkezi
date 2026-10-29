@@ -2,21 +2,32 @@
 
 :root {
   /* Color Palette - Premium Spa & Beauty Aesthetic */
-  --primary: hsl(345, 45%, 24%);         /* Premium Burgundy Accent */
-  --primary-hover: hsl(345, 45%, 16%);   /* Darker Burgundy Hover */
-  --primary-light: hsl(350, 50%, 92%);   /* Light Rose-Plum Tint */
-  
-  --secondary: hsl(345, 50%, 14%);       /* Deepest Plum/Burgundy */
-  --accent: hsl(350, 45%, 60%);         /* Dusty Rose */
-  
-  --bg-main: hsl(350, 40%, 94.5%);     /* Richer Soft Pink/Rose Backdrop */
-  --bg-card: hsl(0, 0%, 100%);          /* Pure White */
-  --bg-footer: hsl(345, 45%, 12%);      /* Very Deep Burgundy */
-  
-  --text-dark: hsl(345, 20%, 15%);      /* Dark Burgundy Tinted Charcoal */
-  --text-light: hsl(350, 20%, 95%);      /* Soft Pinkish Tinted Cream */
-  --text-muted: hsl(345, 12%, 45%);     /* Muted Burgundy */
-  
+  --primary: hsl(345, 45%, 24%);
+  /* Premium Burgundy Accent */
+  --primary-hover: hsl(345, 45%, 16%);
+  /* Darker Burgundy Hover */
+  --primary-light: hsl(350, 50%, 92%);
+  /* Light Rose-Plum Tint */
+
+  --secondary: hsl(345, 50%, 14%);
+  /* Deepest Plum/Burgundy */
+  --accent: hsl(350, 45%, 60%);
+  /* Dusty Rose */
+
+  --bg-main: hsl(350, 40%, 94.5%);
+  /* Richer Soft Pink/Rose Backdrop */
+  --bg-card: hsl(0, 0%, 100%);
+  /* Pure White */
+  --bg-footer: hsl(345, 45%, 12%);
+  /* Very Deep Burgundy */
+
+  --text-dark: hsl(345, 20%, 15%);
+  /* Dark Burgundy Tinted Charcoal */
+  --text-light: hsl(350, 20%, 95%);
+  /* Soft Pinkish Tinted Cream */
+  --text-muted: hsl(345, 12%, 45%);
+  /* Muted Burgundy */
+
   --border-color: hsl(36, 30%, 90%);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
@@ -34,11 +45,17 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-a:focus, button:focus, input:focus, select:focus, textarea:focus, img:focus {
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+img:focus {
   outline: none;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden !important;
@@ -52,7 +69,12 @@ body {
 }
 
 /* --- Typographical Presets --- */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
@@ -353,9 +375,11 @@ header.scrolled {
   0% {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
+
   50% {
     border-radius: 50% 50% 30% 70% / 50% 60% 40% 60%;
   }
+
   100% {
     border-radius: 60% 40% 60% 40% / 40% 50% 50% 60%;
   }
@@ -1108,7 +1132,7 @@ footer {
     z-index: 1005;
     transition: transform 0.3s ease-in-out;
   }
-  
+
   .nav-links.active {
     transform: translateX(0);
   }
@@ -1123,19 +1147,19 @@ footer {
     padding: 0.4rem 0;
     font-size: 1.05rem;
   }
-  
+
   .menu-toggle {
     display: flex;
   }
-  
+
   .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
-  
+
   .menu-toggle.active span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
@@ -1145,35 +1169,37 @@ footer {
     text-align: center;
     gap: 3rem;
   }
-  
+
   .hero-content h1 {
     font-size: 3.2rem;
   }
-  
+
   .hero-actions {
     justify-content: center;
   }
-  
+
   .hero-image-container {
     max-width: 400px;
     margin: 0 auto;
   }
-  
-  .about-grid, .laser-grid, .contact-grid {
+
+  .about-grid,
+  .laser-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  
+
   .about-images {
     order: 2;
     max-width: 550px;
     margin: 0 auto;
   }
-  
+
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .campaign-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -1186,11 +1212,11 @@ footer {
   .campaign-card h4 {
     font-size: 1.3rem;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1214,18 +1240,18 @@ footer {
     padding-bottom: 0.8rem;
   }
 
-  .about-content h2, 
-  .laser-content h2, 
+  .about-content h2,
+  .laser-content h2,
   .contact-info h2 {
     font-size: 1.8rem !important;
   }
-  
+
   .hero-content h1 {
     font-size: 1.8rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-  
+
   .hero {
     padding: 8.5rem 1.25rem 2.5rem 1.25rem;
   }
@@ -1240,12 +1266,12 @@ footer {
     width: 100% !important;
     box-sizing: border-box !important;
   }
-  
+
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .laser-features {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1258,21 +1284,21 @@ footer {
   .stat-item h3 {
     font-size: 2.2rem;
   }
-  
+
   .form-group-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  
+
   .appointment-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
@@ -1292,8 +1318,8 @@ footer {
     font-size: 1.6rem;
   }
 
-  .about-content h2, 
-  .laser-content h2, 
+  .about-content h2,
+  .laser-content h2,
   .contact-info h2 {
     font-size: 1.6rem !important;
   }
@@ -1396,7 +1422,8 @@ footer {
   box-shadow: 0 6px 20px rgba(87, 20, 36, 0.45);
 }
 
-.whatsapp-float svg, .phone-float svg {
+.whatsapp-float svg,
+.phone-float svg {
   fill: currentColor;
 }
 
@@ -1404,9 +1431,11 @@ footer {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
   }
+
   70% {
     box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
   }
@@ -1416,9 +1445,11 @@ footer {
   0% {
     box-shadow: 0 0 0 0 rgba(87, 20, 36, 0.5);
   }
+
   70% {
     box-shadow: 0 0 0 15px rgba(87, 20, 36, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(87, 20, 36, 0);
   }
@@ -1431,15 +1462,16 @@ footer {
     width: 50px;
     height: 50px;
   }
-  
+
   .phone-float {
     bottom: 5.3rem;
     right: 1.5rem;
     width: 50px;
     height: 50px;
   }
-  
-  .whatsapp-float svg, .phone-float svg {
+
+  .whatsapp-float svg,
+  .phone-float svg {
     width: 24px;
     height: 24px;
   }
@@ -1923,211 +1955,86 @@ footer {
   background: linear-gradient(135deg, #7a0006 0%, #ba030d 25%, #e30a17 50%, #ba030d 75%, #7a0006 100%);
   background-size: 200% 200%;
   animation: celebrationShift 8s ease infinite;
-  color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.28);
   box-shadow: 0 4px 25px rgba(227, 10, 23, 0.4);
-  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
-  padding: 0.45rem 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
 @keyframes celebrationShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.celebration-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: 0 1.25rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* Yan Portre & Bayrak Öğeleri */
-.celebration-side {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  flex-shrink: 0;
-}
-
-.celebration-avatar-wrapper {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #ffd166;
-  box-shadow: 0 0 12px rgba(255, 209, 102, 0.55), 0 2px 6px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  background: #000;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-
-.celebration-avatar-wrapper:hover {
-  transform: scale(1.1);
-}
-
-.celebration-avatar {
+.celebration-img-wrapper {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
-}
-
-.celebration-flag-wrapper {
+  max-width: 1940px;
   display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.celebration-side-flag {
-  width: 32px;
-  height: 22px;
-  border-radius: 3px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  display: block;
-  animation: flagFlutter 2.8s ease-in-out infinite alternate;
-}
-
-@keyframes flagFlutter {
-  0% { transform: scale(1) translateY(0); }
-  100% { transform: scale(1.08) translateY(-2px); }
-}
-
-.celebration-content {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  text-align: center;
-  font-size: 0.88rem;
-  font-weight: 500;
-  line-height: 1.35;
-  flex: 1;
-}
-
-.celebration-title {
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.01em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.celebration-divider {
-  opacity: 0.65;
-  font-size: 0.75rem;
-}
-
-.celebration-desc {
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.celebration-close-btn {
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.25s ease;
-  margin-left: 0.25rem;
-  flex-shrink: 0;
-  padding: 0;
+  line-height: 0;
 }
 
-.celebration-close-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.12);
-  color: #ffffff;
+.celebration-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 75px;
+  object-fit: contain;
+  display: block;
 }
 
 /* Header & Hero dinamik hizalama */
 body.has-top-banner header {
-  top: var(--banner-height, 48px);
+  top: var(--banner-height, 50px);
   transition: top 0.25s ease;
 }
 
 body.has-top-banner .hero {
-  padding-top: calc(10.5rem + var(--banner-height, 48px)) !important;
+  padding-top: calc(10.5rem + var(--banner-height, 50px)) !important;
   transition: padding-top 0.25s ease;
 }
 
-@media (max-width: 1200px) {
-  .celebration-container {
-    gap: 0.75rem;
-  }
-  .celebration-content {
-    font-size: 0.82rem;
-  }
-}
-
 @media (max-width: 991px) {
-  .celebration-content {
-    font-size: 0.78rem;
-    gap: 0.4rem;
-  }
-  .celebration-avatar-wrapper {
-    width: 32px;
-    height: 32px;
-  }
-  .celebration-side-flag {
-    width: 28px;
-    height: 19px;
+  .celebration-banner-img {
+    max-height: 56px;
   }
   body.has-top-banner .nav-links {
-    top: var(--banner-height, 48px);
-    height: calc(100vh - var(--banner-height, 48px));
+    top: var(--banner-height, 50px);
+    height: calc(100vh - var(--banner-height, 50px));
   }
 }
 
 @media (max-width: 768px) {
-  .celebration-top-bar {
-    padding: 0.45rem 0;
-  }
-  .celebration-container {
-    gap: 0.5rem;
-    padding: 0 0.6rem;
-  }
-  /* Mobilde her iki yanda 1'er simge bırakılır: Solda Atatürk, Sağda Bayrak */
-  .celebration-side-left .celebration-flag-wrapper,
-  .celebration-side-right .celebration-avatar-wrapper {
-    display: none;
-  }
-  .celebration-avatar-wrapper {
-    width: 28px;
-    height: 28px;
-  }
-  .celebration-side-flag {
-    width: 24px;
-    height: 16px;
-  }
-  .celebration-content {
-    flex-direction: column;
-    gap: 0.1rem;
-    font-size: 0.74rem;
-  }
-  .celebration-divider {
-    display: none;
+  .celebration-banner-img {
+    max-height: 46px;
   }
   body.has-top-banner .hero {
-    padding-top: calc(9.5rem + var(--banner-height, 48px)) !important;
+    padding-top: calc(9.5rem + var(--banner-height, 46px)) !important;
   }
 }
 
 @media (max-width: 576px) {
+  .celebration-banner-img {
+    max-height: 42px;
+  }
   body.has-top-banner .hero {
-    padding-top: calc(9rem + var(--banner-height, 48px)) !important;
+    padding-top: calc(9rem + var(--banner-height, 42px)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .celebration-banner-img {
+    max-height: 38px;
   }
 }
