@@ -227,7 +227,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // ==========================================================================
 // ÖZEL GÜN VE ANMA BARLARI (HER YIL OTOMATİK YAYINLAMA & KALDIRMA)
 // 1) 29 Ekim Cumhuriyet Bayramı: 28 Ekim 00:00 - 29 Ekim 23:59:59 (Her yıl)
-// 2) 10 Kasım Atatürk'ü Anma Günü: 1 Kasım 00:00 - 10 Kasım 23:59:59 (Her yıl)
+// 2) 10 Kasım Atatürk'ü Anma Günü: Sadece 10 Kasım günü 00:00 - 23:59:59 (Her yıl)
 // ==========================================================================
 function initSpecialDaysBanners() {
   const republicBanner = document.getElementById('republicDayBanner');
@@ -242,8 +242,8 @@ function initSpecialDaysBanners() {
   const republicExpire = new Date(currentYear, 9, 29, 23, 59, 59, 999);
 
   // 2. 10 Kasım Atatürk'ü Anma (Ay indeksi: 10 = Kasım)
-  // Anma haftası boyunca aktif kalır, 10 Kasım 23:59:59'da otomatik kapanır
-  const memorialStart = new Date(currentYear, 10, 1, 0, 0, 0, 0);
+  // Sadece 10 Kasım günü boyunca aktif kalır (10 Kasım 00:00:00 - 23:59:59)
+  const memorialStart = new Date(currentYear, 10, 10, 0, 0, 0, 0);
   const memorialExpire = new Date(currentYear, 10, 10, 23, 59, 59, 999);
 
   // Canlı Önizleme Modu Algılama (URL, Hash, SessionStorage):
