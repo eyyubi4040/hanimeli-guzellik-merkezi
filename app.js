@@ -425,3 +425,57 @@ if (document.readyState === 'loading') {
 } else {
   initSpecialDaysBanners();
 }
+
+// CRO & Lead Conversion Tracker
+const initLeadConversionTracking = () => {
+  window.dataLayer = window.dataLayer || [];
+
+  const trackConversion = (action, category, label) => {
+    try {
+      window.dataLayer.push({
+        event: 'lead_conversion',
+        event_category: category,
+        event_action: action,
+        event_label: label,
+        timestamp: new Date().toISOString()
+      });
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: category,
+          event_label: label
+        });
+      }
+    } catch (err) {
+      // safe fallback
+    }
+  };
+
+  // WhatsApp click tracking
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const location = el.closest('.mobile-sticky-bar') ? 'sticky_bar'
+                     : el.closest('.hero') ? 'hero'
+                     : el.closest('.quick-contact-banner') ? 'form_banner'
+                     : 'general';
+      trackConversion('click_whatsapp', 'Lead Engagement', location);
+    });
+  });
+
+  // Call click tracking
+  document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const location = el.closest('.mobile-sticky-bar') ? 'sticky_bar'
+                     : el.closest('.hero') ? 'hero'
+                     : 'general';
+      trackConversion('click_phone', 'Lead Engagement', location);
+    });
+  });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLeadConversionTracking);
+} else {
+  initLeadConversionTracking();
+}
+
