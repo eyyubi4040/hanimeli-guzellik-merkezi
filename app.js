@@ -232,7 +232,8 @@ window.addEventListener('DOMContentLoaded', () => {
 function initSpecialDaysBanners() {
   const republicBanner = document.getElementById('republicDayBanner');
   const memorialBanner = document.getElementById('ataturkMemorialBanner');
-  if (!republicBanner && !memorialBanner) return;
+  const teachersBanner = document.getElementById('teachersDayBanner');
+  if (!republicBanner && !memorialBanner && !teachersBanner) return;
 
   const now = new Date();
   const currentYear = now.getFullYear();
@@ -246,6 +247,10 @@ function initSpecialDaysBanners() {
   const memorialStart = new Date(currentYear, 10, 10, 0, 0, 0, 0);
   const memorialExpire = new Date(currentYear, 10, 10, 23, 59, 59, 999);
 
+  // 3. 24 Kasım Öğretmenler Günü (Ay indeksi: 10 = Kasım)
+  const teachersStart = new Date(currentYear, 10, 24, 0, 0, 0, 0);
+  const teachersExpire = new Date(currentYear, 10, 24, 23, 59, 59, 999);
+
   // Canlı Önizleme Modu Algılama (URL, Hash, SessionStorage):
   const fullHref = (window.location.href || '').toLowerCase();
   let forceBanner = null;
@@ -256,7 +261,9 @@ function initSpecialDaysBanners() {
   } catch (e) { }
 
   if (!forceBanner) {
-    if (fullHref.includes('10kasim') || fullHref.includes('10-kasim')) {
+    if (fullHref.includes('24kasim') || fullHref.includes('24-kasim') || fullHref.includes('ogretmenler')) {
+      forceBanner = '24kasim';
+    } else if (fullHref.includes('10kasim') || fullHref.includes('10-kasim')) {
       forceBanner = '10kasim';
     } else if (fullHref.includes('29ekim') || fullHref.includes('29-ekim')) {
       forceBanner = '29ekim';
@@ -275,12 +282,18 @@ function initSpecialDaysBanners() {
   let activeBanner = null;
   let activeExpire = null;
 
-  if (forceBanner === '10kasim' && memorialBanner) {
+  if (forceBanner === '24kasim' && teachersBanner) {
+    activeBanner = teachersBanner;
+    activeExpire = teachersExpire;
+  } else if (forceBanner === '10kasim' && memorialBanner) {
     activeBanner = memorialBanner;
     activeExpire = memorialExpire;
   } else if (forceBanner === '29ekim' && republicBanner) {
     activeBanner = republicBanner;
     activeExpire = republicExpire;
+  } else if (now.getTime() >= teachersStart.getTime() && now.getTime() <= teachersExpire.getTime() && teachersBanner) {
+    activeBanner = teachersBanner;
+    activeExpire = teachersExpire;
   } else if (now.getTime() >= memorialStart.getTime() && now.getTime() <= memorialExpire.getTime() && memorialBanner) {
     activeBanner = memorialBanner;
     activeExpire = memorialExpire;
@@ -292,6 +305,7 @@ function initSpecialDaysBanners() {
   function activateBanner(bannerToActivate) {
     if (republicBanner) republicBanner.style.display = 'none';
     if (memorialBanner) memorialBanner.style.display = 'none';
+    if (teachersBanner) teachersBanner.style.display = 'none';
 
     if (!bannerToActivate) {
       document.body.classList.remove('has-top-banner');
@@ -324,6 +338,10 @@ function initSpecialDaysBanners() {
   }
 
   // Global kontroller (konsol veya harici tetikleyiciler için)
+  window.show24KasimBanner = () => {
+    sessionStorage.setItem('hgm_preview_banner', '24kasim');
+    activateBanner(teachersBanner);
+  };
   window.show10KasimBanner = () => {
     sessionStorage.setItem('hgm_preview_banner', '10kasim');
     activateBanner(memorialBanner);
@@ -383,6 +401,9 @@ function initSpecialDaysBanners() {
       <span style="font-weight: 600; color: #ff9f1c; display: flex; align-items: center; gap: 4px;">
         ✦ Banner:
       </span>
+      <button type="button" id="btnTest24Kasim" style="background: ${activeBanner === teachersBanner ? '#3b82f6' : 'rgba(255,255,255,0.1)'}; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 14px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">
+        24 Kasım
+      </button>
       <button type="button" id="btnTest10Kasim" style="background: ${activeBanner === memorialBanner ? '#22c55e' : 'rgba(255,255,255,0.1)'}; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 14px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s;">
         10 Kasım
       </button>
@@ -396,15 +417,23 @@ function initSpecialDaysBanners() {
 
     document.body.appendChild(toolbar);
 
+    const b24 = document.getElementById('btnTest24Kasim');
     const b10 = document.getElementById('btnTest10Kasim');
     const b29 = document.getElementById('btnTest29Ekim');
     const bOff = document.getElementById('btnTestOff');
 
     const updateButtonStyles = (activeType) => {
+      if (b24) b24.style.background = activeType === '24' ? '#3b82f6' : 'rgba(255,255,255,0.1)';
       if (b10) b10.style.background = activeType === '10' ? '#22c55e' : 'rgba(255,255,255,0.1)';
       if (b29) b29.style.background = activeType === '29' ? '#ef4444' : 'rgba(255,255,255,0.1)';
     };
 
+    if (b24) {
+      b24.addEventListener('click', () => {
+        window.show24KasimBanner();
+        updateButtonStyles('24');
+      });
+    }
     b10.addEventListener('click', () => {
       window.show10KasimBanner();
       updateButtonStyles('10');

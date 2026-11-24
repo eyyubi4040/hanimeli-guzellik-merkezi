@@ -2228,3 +2228,9 @@ body.has-top-banner .hero {
   color: #666666 !important;
   line-height: 1.2 !important;
 }
+
+.teachers-day-top-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+}
